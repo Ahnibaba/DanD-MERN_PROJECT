@@ -32,6 +32,7 @@ const NewUserForm = () => {
 
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password))
+
     }, [password])
 
     useEffect(() => {

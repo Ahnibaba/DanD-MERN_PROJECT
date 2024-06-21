@@ -5,7 +5,7 @@ const fsPromises = require("fs").promises;
 const path = require("path");
 
 const logEvents = async (message, logFileName) => {
-   const dateTime = `${format(new Date(), "yyyyMMdd\tHH:mm:ss")}` 
+   const dateTime = format(new Date(), "yyyyMMdd\tHH:mm:ss")
    const logItem = `${dateTime}\t${uuid()}\t${message}\n`
 
    try{
@@ -17,10 +17,10 @@ const logEvents = async (message, logFileName) => {
       console.log(err);
    }
 }
-
+ 
 const logger = (req, res, next) => {
    logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, "reqLog.log")
-   console.log(`${req.method} ${req.path}`);
+   console.log(`${req.method} ${req.path} ${req.url} ${req.headers.origin}`);
    next();
 }
 

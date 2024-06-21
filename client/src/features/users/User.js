@@ -2,17 +2,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate } from "react-router-dom"
 
-import { selectAllUsers } from "./usersApiSlice"
+
 import { useSelector } from "react-redux"
 import { selectUserById } from "./usersApiSlice"
 
 
 const User = ({ userId }) => {
     const user = useSelector(state => selectUserById(state, userId))
-    const allUsers = useSelector(selectAllUsers);
-
-    console.log(allUsers);
-
+   
     
 
     const navigate = useNavigate();
