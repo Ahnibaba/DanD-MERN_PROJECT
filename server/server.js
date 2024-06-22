@@ -29,6 +29,7 @@ app.use("/notes", require("./routes/noteRoutes"));
 
 
 
+
 app.all("*", (req, res) => {
     res.status(404);
     if(req.accepts("html")){

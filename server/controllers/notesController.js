@@ -10,8 +10,15 @@ const getAllNotes = asyncHandler(async (req, res) => {
        return res.status(400).json({ message: "No notes found" })
     }
 
-    const noteWithUser = await Promise.all(notes.map(async (note) => {                                  
-        const user = await User.findById(note.user).lean().exec()
+    // const notesWithUsers = await Promise.all(notes.map(async (note) => {
+    //     const users = await User.find({ _id: { $in: note.user } }).lean().exec();
+    //     const usernames = users.map(user => user.username);
+        
+    //     return { ...note, usernames };
+    // }));
+
+    const noteWithUser = await Promise.all(notes.map(async (note) => {
+        const user = await User.findById(note.user).lean().exec();
         return { ...note, username: user.username }
     }))
 
@@ -19,7 +26,7 @@ const getAllNotes = asyncHandler(async (req, res) => {
 })
 
 const createNewNote = asyncHandler(async (req, res) => {
-    const { user, title, text, completed } = req.body;
+    const { user, title, text } = req.body;
 
     if(!user || !title || !text){
         return res.status(400).json({ message: "All fields are required" })
@@ -29,12 +36,12 @@ const createNewNote = asyncHandler(async (req, res) => {
     if(duplicate) {
         return res.status(409).json({ message: "Duplicate note title" })
     }
-    const noteObject = { user, title, text, completed }
+    const noteObject = { user, title, text }
     const note = await Note.create(noteObject);
 
     if(note){
         res.status(201).json({ message: `Note with the title ${note.title} is created` })
-    } else{
+    } else{ 
         res.status(400).json({ message: "Invalid user data received" })
     }
 })
