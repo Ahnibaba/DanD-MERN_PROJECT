@@ -21,10 +21,10 @@ const EditNoteForm = ({ note, users }) => {
 
     const navigate = useNavigate()
 
-    const [title, setTitle] = useState(note.title)
-    const [text, setText] = useState(note.text)
-    const [completed, setCompleted] = useState(note.completed)
-    const [userId, setUserId] = useState(note.user)
+    const [title, setTitle] = useState(note?.title)
+    const [text, setText] = useState(note?.text)
+    const [completed, setCompleted] = useState(note?.completed)
+    const [userId, setUserId] = useState(note?.user)
 
     useEffect(() => {
 
@@ -63,7 +63,7 @@ const EditNoteForm = ({ note, users }) => {
                 key={user.id}
                 value={user.id}
 
-            > {user.username}</option >
+            > {user.username}</option>
         )
     })
 

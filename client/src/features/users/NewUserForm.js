@@ -57,6 +57,7 @@ const NewUserForm = () => {
 
     const onSaveUserClicked = async (e) => {
         e.preventDefault()
+        
         if (canSave) {
             await addNewUser({ username, password, roles })
         }
