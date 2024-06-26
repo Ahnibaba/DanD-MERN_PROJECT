@@ -152,9 +152,6 @@ a:focus-visible {
   align-items: center;
 }
 
-.dash-header__container--small {
-  max-width: 800px;
-}
 
 .dash-header__nav {
   display: flex;
