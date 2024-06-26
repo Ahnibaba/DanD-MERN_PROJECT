@@ -29,7 +29,7 @@ const DashHeader = () => {
     
 
     useEffect(() => {
-        console.log(isSuccess);
+        //console.log(isSuccess);
         if (isSuccess) navigate('/')
     }, [isSuccess, navigate])
 
