@@ -32,7 +32,7 @@ const NotesList = () => {
     if (isSuccess) {
         const { ids, entities } = notes
      //   console.log(entities);
-       // console.log(ids);
+       //console.log(ids);
 
         let filteredIds
         if(isManager || isAdmin) {
