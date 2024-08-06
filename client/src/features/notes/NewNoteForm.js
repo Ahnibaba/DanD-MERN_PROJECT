@@ -46,7 +46,8 @@ const NewNoteForm = ({ users }) => {
             <option
                 key={user.id}
                 value={user.id}
-            > {user.username}</option >
+            > {user.username}
+            </option>
         )
     })
 
