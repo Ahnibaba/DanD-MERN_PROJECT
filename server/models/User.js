@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     roles: {
         type: [String],
-        default: ["Admin", "Manager"]
+        default: ["Employee"]
     },
     active: {
         type: Boolean,
