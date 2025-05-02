@@ -4,7 +4,8 @@ const allowedOrigins = [
     "https://technotes-zpu1.onrender.com",
     "http://localhost:3002",
     "https://www.dandrepairshop.com",
-    "https://dandrepairshop.com"
+    "https://dandrepairshop.com",
+    "https://dan-d-mern-project.vercel.app"
     
 ]
 
